@@ -7,28 +7,17 @@
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 </head>
-
-<body>
-  <video
-    id="my-video"
-    class="video-js"
-    controls
-    preload="auto"
-    width="640"
-    height="264"
-    poster="MY_VIDEO_POSTER.jpg"
-    data-setup="{}"
-  >
-    <source src="http://dl3.mojdl.com/upload/Movies/2019/Uncut%20Gems/Uncut.Gems.2019.1080p.WEB-DL.RARBG.%5BMojoo%5D.mkv" type="video/mkv" />
-    <source src="MY_VIDEO.webm" type="video/webm" />
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a
-      web browser that
-      <a href="https://videojs.com/html5-video-support/" target="_blank"
-        >supports HTML5 video</a
-      >
-    </p>
-  </video>
+<video-js id=vid1 width=600 height=300 class="vjs-default-skin" controls>
+  <source
+     src="https://usher.ttvnw.net/api/channel/hls/mrcrackstreams.m3u8?allow_source=true&fast_bread=true&p=6183965&play_session_id=2873b248fedfdb66f5b52134682a9592&player_backend=mediaplayer&playlist_include_framerate=true&reassignments_supported=true&sig=781a51591db3aae6db623df7527cf410a747b0f5&supported_codecs=avc1&token=%7B%22adblock%22%3Atrue%2C%22authorization%22%3A%7B%22forbidden%22%3Afalse%2C%22reason%22%3A%22%22%7D%2C%22blackout_enabled%22%3Afalse%2C%22channel%22%3A%22mrcrackstreams%22%2C%22channel_id%22%3A526887189%2C%22chansub%22%3A%7B%22restricted_bitrates%22%3A%5B%5D%2C%22view_until%22%3A1924905600%7D%2C%22ci_gb%22%3Afalse%2C%22geoblock_reason%22%3A%22%22%2C%22device_id%22%3A%22047ff3987c12d2be%22%2C%22expires%22%3A1590900816%2C%22extended_history_allowed%22%3Afalse%2C%22game%22%3A%22%22%2C%22hide_ads%22%3Afalse%2C%22https_required%22%3Atrue%2C%22mature%22%3Afalse%2C%22partner%22%3Afalse%2C%22platform%22%3A%22web%22%2C%22player_type%22%3A%22embed%22%2C%22private%22%3A%7B%22allowed_to_view%22%3Atrue%7D%2C%22privileged%22%3Afalse%2C%22server_ads%22%3Atrue%2C%22show_ads%22%3Atrue%2C%22subscriber%22%3Afalse%2C%22turbo%22%3Afalse%2C%22user_id%22%3Anull%2C%22user_ip%22%3A%2271.58.142.149%22%2C%22version%22%3A2%7D&player_version=0.9.80"
+     type="application/x-mpegURL">
+</video-js>
+<script src="video.js"></script>
+<script src="videojs-http-streaming.min.js"></script>
+<script>
+var player = videojs('vid1');
+player.play();
+</script>
 
   <script src="https://vjs.zencdn.net/7.8.2/video.js"></script>
 </body>
