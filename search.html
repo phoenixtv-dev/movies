@@ -81,7 +81,7 @@
 					var url = "https://searx.me/?q="+encodeURIComponent(finalQuery);
 					break;
 				case 'filepursuit':
-					var url = "https://filepursuit.com/search/"+query.replace(/ /g,"+")+"/type/"+resType;
+					var url = "https://filepursuit.com/pursuit?q="+query.replace(/ /g,"+")+"&type="+resType;
 					break;
 			}
 			console.log(url);
