@@ -75,8 +75,8 @@
 					var url = "https://www.google.com/search?q="+encodeURIComponent(finalQuery);
 					break;
 				case 'googol':
-					var url = "https://www.google.com/search?q=site%3Adrive.google.com%2B";
-					break;
+					var url = "https://www.google.com/search?q=site%3Adrive.google.com";+encodeURIComponent(finalQuery);
+			                break;
 				case 'startpage':
 					var url = "https://www.startpage.com/do/dsearch?query="+encodeURIComponent(finalQuery);
 					break;
