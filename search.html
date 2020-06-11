@@ -75,7 +75,7 @@
 					var url = "https://www.google.com/search?q="+encodeURIComponent(finalQuery);
 					break;
 				case 'googol':
-					var url = "https://www.google.com/search?q=site%3Adrive.google.com%2B"+encodeURIComponent(finalQuery);
+					var url = "https://www.google.com/search?q=site%3Adrive.google.com%2B"+query;
 			                break;
 				case 'startpage':
 					var url = "https://www.startpage.com/do/dsearch?query="+encodeURIComponent(finalQuery);
@@ -150,7 +150,7 @@ Get direct download links for almost anything.
 					<button id="egbutton" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Google <span id="message" class="caret"></span></button>
 					<ul class="dropdown-menu">
 						<li><a href="#" onclick="setEngine('google')">Google</a></li>
-						<li><a href="#" onclick="setEngine('googol')">GDrive</a></li>
+						<li><a href="#" onclick="setEngine('gdrive')">GDrive</a></li>
 						<li><a href="#" onclick="setEngine('startpage')">Startpage</a></li>
 						<li><a href="#" onclick="setEngine('searx')">Searx</a></li>
 						<li><a href="#" onclick="setEngine('filepursuit')">FilePursuit</a></li>
