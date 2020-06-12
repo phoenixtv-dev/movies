@@ -68,6 +68,8 @@
 				}
 				var finalQuery = query+" -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) intitle:index.of -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|index-of|wallywashis|downloadmana)";
 			} else {
+                                var finalQuery1 = query+" site:drive.google.com";
+			} else {
 				var finalQuery = query+" +("+fileType+") -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml) intitle:index.of -inurl:(listen77|mp3raid|mp3toss|mp3drug|index_of|index-of|wallywashis|downloadmana)";
 			}
 			switch(engine) {
@@ -75,7 +77,7 @@
 					var url = "https://www.google.com/search?q="+encodeURIComponent(finalQuery);
 					break;
 				case 'googol':
-					var url = "https://www.google.com/search?q="+query+site:drive.google.com;
+					var url = "https://www.google.com/search?q="+encodeURIComponent(finalQuery1);
 			                break;
 				case 'startpage':
 					var url = "https://www.startpage.com/do/dsearch?query="+encodeURIComponent(finalQuery);
@@ -137,7 +139,7 @@ Get direct download links for almost anything.
 					<button id="ddbutton" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Filetype <span id="message" class="caret"></span></button>
 					<ul class="dropdown-menu">
 
-						<li><a href="#" onclick="setFiletype('site:drive.google.com', 'Gdrive')"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Gdrive</a></li>
+						<li><a href="#" onclick="setFiletype('', 'Gdrive')"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Gdrive</a></li>
 						<li><a href="#" onclick="setFiletype('mkv|mp4|avi|mov|mpg|wmv|divx|mpeg', 'TV/Movies', 'video', 'film')"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> TV/Movies/Video</a></li>
 						<li><a href="#" onclick="setFiletype('MOBI|CBZ|CBR|CBC|CHM|EPUB|FB2|LIT|LRF|ODT|PDF|PRC|PDB|PML|RB|RTF|TCR|DOC|DOCX', 'Books', 'ebook', 'book')"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Books</a></li>
 						<li><a href="#" onclick="setFiletype('mp3|wav|ac3|ogg|flac|wma|m4a|aac|mod', 'Music', 'audio', 'music')"><span class="glyphicon glyphicon-music" aria-hidden="true"></span> Music</a></li>
