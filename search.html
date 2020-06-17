@@ -77,7 +77,7 @@
 				case 'startpage':
 					var url = "https://www.startpage.com/do/dsearch?query="+encodeURIComponent(finalQuery);
 					break;
-				case 'searx':
+				case 'calibre':
 					var url = "https://calishot-2.herokuapp.com/index/summary?_search="+query.replace(/ /g,"+")+"&_sort="+resType;
 					break;
 				case 'filepursuit':
@@ -144,7 +144,7 @@ Get direct download links for almost anything.
 						<li><a href="#" onclick="setEngine('google')">Google</a></li>
 						<li><a href="#" onclick="setEngine('googol')">Googol</a></li>
 						<li><a href="#" onclick="setEngine('startpage')">Startpage</a></li>
-						<li><a href="#" onclick="setEngine('searx')">Searx</a></li>
+						<li><a href="#" onclick="setEngine('searx')">Calibre</a></li>
 						<li><a href="#" onclick="setEngine('filepursuit')">FilePursuit</a></li>
 					</ul>
 				</div><!-- /btn-group -->
