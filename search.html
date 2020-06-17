@@ -78,7 +78,7 @@
 					var url = "https://www.startpage.com/do/dsearch?query="+encodeURIComponent(finalQuery);
 					break;
 				case 'searx':
-					var url = "https://searx.me/?q="+encodeURIComponent(finalQuery);
+					var url = "https://calishot-2.herokuapp.com/index/summary?_search="+query.replace(/ /g,"+")+"&_sort="+resType;
 					break;
 				case 'filepursuit':
 					var url = "https://filepursuit.com/pursuit?q="+query.replace(/ /g,"+")+"&type="+resType;
