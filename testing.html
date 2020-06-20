@@ -16,7 +16,7 @@
             video.play();
         });
     }
-    else if (video.canPlayType('application/vnd.apple.mpegurl'))
+    else if (video.canPlayType('application/x-mpegURL'))
     {
         video.src = 'https://dai.google.com/linear/hls/pa/event/gaDje967RoSDD5llid2OBA/stream/4672ff84-2473-479f-a42f-a0e4fe5946ff:ATL/variant/72595c90ea84b49f5b8b598797fbdbab/bandwidth/5058864.m3u8';
         video.addEventListener('canplay',function()
