@@ -1,24 +1,29 @@
 
 
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<video id="video"></video>
-<script>
-  if(Hls.isSupported()) {
-    var video = document.getElementById('video');
-    var hls = new Hls();
-    hls.loadSource('https://dai.google.com/linear/hls/pa/event/gaDje967RoSDD5llid2OBA/stream/4672ff84-2473-479f-a42f-a0e4fe5946ff:ATL/variant/72595c90ea84b49f5b8b598797fbdbab/bandwidth/5058864.m3u8');
-    hls.attachMedia(video);
-    hls.on(Hls.Events.MANIFEST_PARSED,function() {
-      video.play();
-  });
- }
- // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
- // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element throught the `src` property.
- // This is using the built-in support of the plain video element, without using hls.js.
-  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    video.src = 'http://cdncities.com/deranalive/deranalive/playlist.m3u8';
-    video.addEventListener('canplay',function() {
-      video.play();
-    });
-  }
-</script>
+<html>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <video id="video" controls></video>
+    <script>
+    if(Hls.isSupported())
+    {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        hls.loadSource('playlist.m3u8');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function()
+        {
+            video.play();
+        });
+    }
+    else if (video.canPlayType('application/vnd.apple.mpegurl'))
+    {
+        video.src = 'https://dai.google.com/linear/hls/pa/event/gaDje967RoSDD5llid2OBA/stream/4672ff84-2473-479f-a42f-a0e4fe5946ff:ATL/variant/72595c90ea84b49f5b8b598797fbdbab/bandwidth/5058864.m3u8';
+        video.addEventListener('canplay',function()
+        {
+            video.play();
+        });
+    }
+    </script>
+  </body>
+</html>
