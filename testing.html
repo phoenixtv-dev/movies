@@ -1,29 +1,74 @@
+                <script src="http://givemereddit.stream/public/js/clappr.js"></script>
+        <script>
+            window.onload = function () {
+                let player = new Clappr.Player({
+                    source: 'http://opo.azureedge.net/hls/ufc/playlist.m3u8',
+                    height: '100%',
+                    width: '100%',
+                    parentId: '#player',
+                    autoPlay: false,
+                    mimeType: "application/x-mpegURL",
+                    mediacontrol: {
+                        seekbar: '#014AFF',
+                        buttons: '#FFF'
+                    }
+                });
+
+                let played = false;
+
+                let closeAd = document.getElementById('closeAd');
+                let adUnit = document.getElementById('adUnit');
+
+                if (document.body.contains(closeAd)) {
+                    closeAd.addEventListener('click', function() {
+                        adUnit.classList.add('hidden');
+                    });
+                }
+
+                // player.listenTo(player, Clappr.Events.PLAYER_PLAY, function() {
+                //     if (!played) {
+                //         showAd();
+                //     }
+                // });
+
+                // function showAd() {
+                //     played = true;
+                //     let time = 11;
+                //     let adUnit = document.getElementById('adUnit');
+                //     let timer = document.getElementById('timer');
+                //     let overlay = document.getElementById('overlay');
+                //     adUnit.classList.remove('hidden');
+                //     timer.classList.remove('hidden');
+                //     overlay.classList.remove('hidden');
+                //     let downloadTimer = setInterval(function(){
+                //         time--;
+                //         timer.innerHTML = 'Ads: ' + time + ' seconds.';
+                //         if (time <= 0) {
+                //             timer.addEventListener('click', function () {
+                //                 this.classList.add('hidden');
+                //                 adUnit.classList.add('hidden');
+                //                 overlay.classList.add('hidden');
+                //                 this.innerHTML = '';
+                //             });
+                //             clearInterval(downloadTimer);
+                //             timer.innerHTML = 'Remove Ads';
+                //         }
+                //     }, 1000);
+                // }
+
+                function resizePlayer() {
+                    var aspectRatio = 9 / 16,
+                        newWidth = document.getElementById('player').parentElement.offsetWidth,
+                        newHeight = 2 * Math.round(newWidth * aspectRatio / 2);
+                    player.resize({width: newWidth, height: newHeight});
+                }
+
+                resizePlayer();
+
+                window.onresize = resizePlayer;
+            };
 
 
-<html>
-  <body>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <video id="video" controls></video>
-    <script>
-    if(Hls.isSupported())
-    {
-        var video = document.getElementById('video');
-        var hls = new Hls();
-        hls.loadSource('playlist.m3u8');
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED,function()
-        {
-            video.play();
-        });
-    }
-    else if (video.canPlayType('application/x-mpegURL'))
-    {
-        video.src = 'https://dai.google.com/linear/hls/pa/event/gaDje967RoSDD5llid2OBA/stream/4672ff84-2473-479f-a42f-a0e4fe5946ff:ATL/variant/72595c90ea84b49f5b8b598797fbdbab/bandwidth/5058864.m3u8';
-        video.addEventListener('canplay',function()
-        {
-            video.play();
-        });
-    }
-    </script>
-  </body>
-</html>
+        </script>
+    
+   
