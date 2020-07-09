@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>index-eng</title>
+    <link rel="stylesheet" href="/-/static/app.css?67429e">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+
+<script src="/-/static/sql-formatter-2.3.3.min.js" defer></script>
+<script src="/-/static/codemirror-5.31.0.js"></script>
+<link rel="stylesheet" href="/-/static/codemirror-5.31.0-min.css" />
+<script src="/-/static/codemirror-5.31.0-sql.min.js"></script>
+<style>
+    .CodeMirror { height: auto; min-height: 70px; width: 80%; border: 1px solid #ddd; }
+    .CodeMirror-scroll { max-height: 200px; }
+</style>
+
+</head>
+<body class="db db-index-eng">
+
+<nav class="hd">
+    <p class="crumbs">
+        <a href="/">home</a>
+    </p>
+    
+</nav>
+
+<div class="bd">
+
+
+    
+
+
+
+
+
+<h1 style="padding-left: 10px; border-left: 10px solid #ff0000">index-eng</h1>
+
+
+
+
+
+    <form class="sql" action="/index-eng" method="get">
+        <h3>Custom SQL query</h3>
+        <p><textarea id="sql-editor" name="sql">select * from summary</textarea></p>
+        <p>
+            <button id="sql-format" type="button" hidden>Format SQL</button>
+            <input type="submit" value="Run SQL">
+        </p>
+    </form>
+
+
+
+
+<div class="db-table">
+    <h2><a href="/index-eng/summary">summary</a></h2>
+    <p><em>uuid, title, authors, year, series, language, links, publisher, tags...</em></p>
+    <p>866,614 rows</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>... and <a href="/index-eng?_show_hidden=1">5 hidden tables</a></p>
+
+
+
+
+
+
+
+
+<script>
+window.onload = () => {
+    const sqlFormat = document.querySelector("button#sql-format");
+    const readOnly = document.querySelector("pre#sql-query");
+    const sqlInput = document.querySelector("textarea#sql-editor");
+    if (sqlFormat && !readOnly) {
+        sqlFormat.hidden = false;
+    }
+    if (sqlInput) {
+        var editor = CodeMirror.fromTextArea(sqlInput, {
+          lineNumbers: true,
+          mode: "text/x-sql",
+          lineWrapping: true,
+        });
+        editor.setOption("extraKeys", {
+          "Shift-Enter": function() {
+            document.getElementsByClassName("sql")[0].submit();
+          },
+          Tab: false
+        });
+        if (sqlFormat) {
+            sqlFormat.addEventListener("click", ev => {
+                editor.setValue(sqlFormatter.format(editor.getValue()));
+            })
+        }
+    }
+    if (sqlFormat && readOnly) {
+        const formatted = sqlFormatter.format(readOnly.innerHTML);
+        if (formatted != readOnly.innerHTML) {
+            sqlFormat.hidden = false;
+            sqlFormat.addEventListener("click", ev => {
+                readOnly.innerHTML = formatted;
+            })
+        }
+    }
+}
+</script>
+
+
+</div>
+
+<div class="ft">Powered by <a href="https://github.com/simonw/datasette" title="Datasette v0.44">Datasette</a>
+&middot; Query took 7.913ms
+
+    
+    
+    
+</div>
+
+
+
+<!-- Templates considered: database-index-eng.html, *database.html -->
+</body>
+</html>
